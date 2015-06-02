@@ -1,4 +1,4 @@
-![Comrade Screenshot](https://raw.github.com/bamboo-yujiro/dotfiles/master/bamboo-yujiro-sample.png "Comrade ZSH theme")
+![Comrade Screenshot](https://raw.github.com/bamboo-yujiro/dotfiles/master/yujiro-sample.png "Comrade ZSH theme")
 
 At first, set your terminal profile to yujiro.terminal
 
