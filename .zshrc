@@ -183,7 +183,6 @@ ls_abbrev() {
     local ls_lines=$(echo "$ls_result" | wc -l | tr -d ' ')
 
 
-
     if [ $ls_lines -gt 10 ]; then
 
         echo "$ls_result" | head -n 5
@@ -201,7 +200,5 @@ ls_abbrev() {
     fi
 
 }
-
-
 
 alias ll='ls -la'
