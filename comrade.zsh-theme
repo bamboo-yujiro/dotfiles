@@ -27,8 +27,7 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%F{220]➜%f"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%F{082]═%f"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%F{190]✭%f"
 
-PROMPT="
-"$'%{$fg_bold[white]%}'" %n %k%f%F{236}%K{023}"$'\u2b80'"%k%f%F{white}%K{023} %~ %k%f%F{236}%K{023}"$'\u2b82'"%f%F{023}%K{243}"$'$(git_prompt_info)'"%f%k%{$reset_color%} "
+PROMPT=""$'%{$fg_bold[white]%}'" %n %k%f%F{236}%K{023}"$'\u2b80'"%k%f%F{white}%K{023} %~ %k%f%F{236}%K{023}"$'\u2b82'"%f%F{023}%K{243}"$'$(git_prompt_info)'"%f%k%{$reset_color%} "
 
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
 export PROMPT="%{$fg_bold[white]%}%K{130} ${HOST} %{%k%} $PROMPT"

@@ -202,3 +202,5 @@ ls_abbrev() {
 }
 
 alias ll='ls -la'
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
