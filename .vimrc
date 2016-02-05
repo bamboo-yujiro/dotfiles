@@ -65,6 +65,7 @@ set autoindent
 set smarttab
 " ファイル内の <Tab> が対応する空白の数
 set tabstop=2
+"set tabstop=4"
 " シフト移動幅
 set shiftwidth=2
 " Tab入力時半角スペースにする
@@ -92,7 +93,7 @@ set wildmode=list:full
 " ノーマルモード時にペーストモードを解除する
 autocmd InsertLeave * set nopaste
 " clipboard+ の時に yank でクリップボードにコピー
-set clipboard=unnamed,autoselect
+set clipboard=unnamedplus,autoselect
 " ターミナル接続を高速にする
 set ttyfast
 " マクロを実行中は描画を中段する
@@ -123,6 +124,14 @@ set wrapscan
 set hlsearch
 " EscEsc でハイライトを消す
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+" コピペ用
+function CopyPaste()
+    setlocal nonumber!
+    setlocal nocursorline!
+    IndentLinesToggle
+endfunction
+nmap <C-z> :call CopyPaste()<CR>
 
 au BufRead,BufNewFile *.md set filetype=markdown
 
@@ -303,3 +312,5 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
+
+set mouse=v
