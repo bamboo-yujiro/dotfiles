@@ -30,6 +30,6 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%F{190]✭%f"
 PROMPT=""$'%{$fg_bold[white]%}'" %n %k%f%F{236}%K{023}"$'\u2b80'"%k%f%F{white}%K{023} %~ %k%f%F{236}%K{023}"$'\u2b82'"%f%F{023}%K{243}"$'$(git_prompt_info)'"%f%k%{$reset_color%} "
 
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-export PROMPT="%{$fg_bold[white]%}%K{130} ${HOST} %{%k%} $PROMPT"
+export PROMPT="%{$fg_bold[white]%}%K{239} ${HOST} %{%k%} $PROMPT"
 
 RPROMPT=$COMRADE_COLOR_FG_WHITE$'\u2b82'"%f$COMRADE_COLOR_BG_WHITE $COMRADE_COLOR_FG_GRAY%@ "$'\u2b82'"%f%k$COMRADE_COLOR_BG_GRAY$COMRADE_COLOR_FG_WHITE $COMRADE_RIGHT_A %f%k"
