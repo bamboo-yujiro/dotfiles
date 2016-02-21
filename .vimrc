@@ -87,9 +87,9 @@ set virtualedit+=block
 " swap ファイルを生成しない
 set noswapfile
 " 補完表示
-set wildmenu
+ set wildmenu
 " 補完候補を一覧で表示
-set wildmode=list:full
+ set wildmode=list:full
 " ノーマルモード時にペーストモードを解除する
 autocmd InsertLeave * set nopaste
 " clipboard+ の時に yank でクリップボードにコピー
@@ -280,11 +280,11 @@ colorscheme hybrid
 "" neocomplcache
 NeoBundle 'Shougo/neocomplcache'
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
+"let g:acp_enableAtStartup = 0
 " Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+"let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
