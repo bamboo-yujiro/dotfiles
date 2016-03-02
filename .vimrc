@@ -93,7 +93,7 @@ set noswapfile
 " ノーマルモード時にペーストモードを解除する
 autocmd InsertLeave * set nopaste
 " clipboard+ の時に yank でクリップボードにコピー
-set clipboard=unnamedplus,autoselect
+" set clipboard=unnamedplus,autoselect
 " ターミナル接続を高速にする
 set ttyfast
 " マクロを実行中は描画を中段する
@@ -167,6 +167,8 @@ NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'vim-javascript'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
 let g:indentLine_color_term = 239
 
 " Powerline
@@ -314,3 +316,5 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 
 set mouse=a
+
+autocmd Filetype json setl conceallevel=0
