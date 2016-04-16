@@ -206,3 +206,4 @@ alias unicorn:start='bundle exec rake unicorn:start'
 alias unicorn:stop='bundle exec rake unicorn:stop'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+alias clip="nc localhost 8377"
