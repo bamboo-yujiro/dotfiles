@@ -1,6 +1,6 @@
 export ZSH=~/.oh-my-zsh
 
-ZSH_THEME="comrade"
+ZSH_THEME="maran"
 
 plugins=(git)
 
