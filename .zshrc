@@ -110,7 +110,7 @@ darwin*)
 
   alias la="ls -laG"
 
-  export LS_COLORS='di=01;36'
+  export LS_COLORS='di=00;36'
 
   ;;
 
@@ -123,7 +123,7 @@ linux*)
 
   alias la='ls -la --color'
 
-  export LS_COLORS='di=01;36'
+  export LS_COLORS='di=00;36'
   ;;
 
 esac
