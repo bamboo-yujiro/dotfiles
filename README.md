@@ -1,5 +1,4 @@
-![Comrade Screenshot](https://raw.github.com/bamboo-yujiro/dotfiles/master/yujiro-sample.png "Comrade ZSH theme")
-![Comrade Screenshot](https://raw.github.com/bamboo-yujiro/dotfiles/master/ssh-yujiro-sample.png "Comrade ZSH theme")
+![Maran Screenshot](https://raw.github.com/bamboo-yujiro/dotfiles/master/yujiro-sample.png "Maran ZSH theme")
 
 At first, set your terminal profile to yujiro.terminal
 
@@ -34,7 +33,7 @@ clone dotfiles
 
     $ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
     $ git clone https://github.com/bamboo-yujiro/dotfiles.git ~/dotfiles
-    $ cat ~/dotfiles/comrade.zsh-theme > ~/.oh-my-zsh/themes/comrade.zsh-theme
+    $ cat ~/dotfiles/maran.zsh-theme > ~/.oh-my-zsh/themes/maran.zsh-theme
     $ cd dotfiles
     $ git submodule init
     $ git submodule update
