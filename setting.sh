@@ -1,6 +1,6 @@
 #!/bin/sh
-
 user_name="yujiro";
+ZSH="/home/${user_name}/.oh-my-zsh"
 
 apt-get update;
 
