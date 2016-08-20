@@ -28,7 +28,7 @@ make install
 
 apt-get install -y zsh
 
-chsh -s /usr/bin/zsh {$user_name}
+chsh -s /usr/bin/zsh ${user_name}
 
 if [ ! -e /home/${user_name}/.oh-my-zsh ]; then
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
