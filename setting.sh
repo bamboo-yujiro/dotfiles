@@ -34,7 +34,7 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 
 git clone https://github.com/bamboo-yujiro/dotfiles.git /home/${user_name}/dotfiles;
 
-cat /home/${user_name}/dotfiles/maran.zsh-theme > ~/.oh-my-zsh/themes/maran.zsh-theme;
+cat /home/${user_name}/dotfiles/maran.zsh-theme > /home/${user_name}/.oh-my-zsh/themes/maran.zsh-theme;
 
 cd /home/${user_name}/dotfiles/;
 
