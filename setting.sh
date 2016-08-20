@@ -42,4 +42,4 @@ git submodule init;
 
 git submodule update;
 
-./setup.sh;
+su ${user_name} && ./setup.sh
