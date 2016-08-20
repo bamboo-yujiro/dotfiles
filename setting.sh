@@ -1,6 +1,6 @@
 #!/bin/sh
 user_name="yujiro";
-ZSH="/home/${user_name}/.oh-my-zsh"
+export ZSH="/home/${user_name}/.oh-my-zsh"
 
 apt-get update;
 
@@ -32,6 +32,8 @@ chsh -s /usr/bin/zsh;
 
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh;
 
+su ${user_name}
+
 git clone https://github.com/bamboo-yujiro/dotfiles.git /home/${user_name}/dotfiles;
 
 cat /home/${user_name}/dotfiles/maran.zsh-theme > /home/${user_name}/.oh-my-zsh/themes/maran.zsh-theme;
@@ -44,7 +46,7 @@ git submodule update;
 
 for dotfile in .vim .vimrc .zshrc .tmux.conf
 do
-  rm -fr ~/$dotfile
+  rm -fr /home/${user_name}/$dotfile
   #ln -vnfs $PWD/$dotfile ~/$dotfile
   ln -vnfs /home/${user_name}/dotfiles/$dotfile /home/${user_name}/$dotfile
 done
