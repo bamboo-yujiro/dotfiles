@@ -42,7 +42,12 @@ git submodule init;
 
 git submodule update;
 
-su ${user_name} && ./setup.sh
+for dotfile in .vim .vimrc .zshrc .tmux.conf
+do
+  rm -fr ~/$dotfile
+  #ln -vnfs $PWD/$dotfile ~/$dotfile
+  ln -vnfs /home/${user_name}/dotfiles/$dotfile ${user_name}/$dotfile
+done
 
 vi +":NeoBundleInstall" +:q
 
