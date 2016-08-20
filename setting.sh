@@ -43,3 +43,7 @@ git submodule init;
 git submodule update;
 
 su ${user_name} && ./setup.sh
+
+vi +":NeoBundleInstall" +:q
+
+exit;
