@@ -34,8 +34,6 @@ if [ ! -e /home/${user_name}/.oh-my-zsh ]; then
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 fi
 
-su ${user_name}
-
 git clone https://github.com/bamboo-yujiro/dotfiles.git /home/${user_name}/dotfiles
 
 cat /home/${user_name}/dotfiles/maran.zsh-theme > /home/${user_name}/.oh-my-zsh/themes/maran.zsh-theme
@@ -52,6 +50,10 @@ do
   #ln -vnfs $PWD/$dotfile ~/$dotfile
   ln -vnfs /home/${user_name}/dotfiles/$dotfile /home/${user_name}/$dotfile
 done
+
+chown ${user_name}:${user_name} /home/${user_name}/
+
+su ${user_name}
 
 vi +":NeoBundleInstall" +:q
 
