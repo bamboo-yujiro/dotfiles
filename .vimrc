@@ -38,6 +38,7 @@ nnoremap gk k
 
 "send to clipboard"
 vnoremap <silent>y y :call system('nc localhost 8377', @0)<CR>
+vnoremap <silent>d d :call system('nc localhost 8377', @1)<CR>
 
 nnoremap <F5> :<C-u>edit $MYVIMRC<Enter>
 nnoremap <F6> :<C-u>source $MYVIMRC<Enter>
