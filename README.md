@@ -58,7 +58,7 @@ install vim
     $ mkdir git && cd $_
     $ git clone https://github.com/vim-jp/vim.git
     $ cd vim
-    $ sudo yum install ncurses-devel, libgnome-devel, libgnomeui-devel, libnm-gtk-devel, libbonoboui-devel, libX11-devel, libXpm-devel, libXt-devel, python-devel, ruby-devel, lua, perl-ExtUtils-Embed
+    $ sudo yum install ncurses-devel libgnome-devel libgnomeui-devel libnm-gtk-devel libbonoboui-devel libX11-devel libXpm-devel libXt-devel python-devel ruby-devel lua perl-ExtUtils-Embed
     $ make
     $ sudo make install
 
