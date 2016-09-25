@@ -207,3 +207,4 @@ alias unicorn:stop='bundle exec rake unicorn:stop'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 alias clip="nc localhost 8377"
+alias vi='vim'

@@ -2,6 +2,7 @@
 
 At first, set your terminal profile to yujiro.terminal
 
+# Ubuntu
 preparation
 
     $ sudo apt-get update
@@ -44,3 +45,43 @@ clone dotfiles
     $ login
 
 
+# CentOS
+
+preparation
+
+    $ git config --global user.email "ch11.naji@gmail.com"
+    $ git config --global user.name "bamboo-yujiro"
+    $ git config --global color.ui auto
+
+install vim
+
+    $ mkdir git && cd $_
+    $ git clone https://github.com/vim-jp/vim.git
+    $ cd vim
+    $ sudo yum install ncurses-devel, libgnome-devel, libgnomeui-devel, libnm-gtk-devel, libbonoboui-devel, libX11-devel, libXpm-devel, libXt-devel, python-devel, ruby-devel, lua, perl-ExtUtils-Embed
+    $ make
+    $ sudo make install
+
+install zsh
+
+    $ sudo apt-get install zsh
+    $ which zsh
+    /usr/bin/zsh
+    $ sudo vi /etc/shells
+       + /usr/bin/zsh
+    $ sudo chsh -s /usr/bin/zsh [USER]
+
+
+clone dotfiles
+
+    $ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+    $ git clone https://github.com/bamboo-yujiro/dotfiles.git ~/dotfiles
+    $ cat ~/dotfiles/maran.zsh-theme > ~/.oh-my-zsh/themes/maran.zsh-theme
+    $ cd dotfiles
+    $ git submodule init
+    $ git submodule update
+    $ ./setup.sh
+    $ vim .vimrc
+    $ exit
+
+    $ login
