@@ -72,6 +72,7 @@ set tabstop=2
 "set tabstop=4"
 " シフト移動幅
 set shiftwidth=2
+"set shiftwidth=4
 " Tab入力時半角スペースにする
 set expandtab
 " カーソルが何行目の何列目に置かれているかを表示する
@@ -80,6 +81,7 @@ set ruler
 set number
 " 常にカーソル行を真ん中に
 set scrolloff=999
+
 " カレント行をハイライト
 set cursorline
 " 入力中のコマンドを表示する
@@ -319,11 +321,16 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 
-set mouse=a
-
 autocmd Filetype json setl conceallevel=0
 
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
+
+autocmd FileType php,ctp :set shiftwidth=2
+
+autocmd FileType python :set tabstop=4
+autocmd FileType python :set shiftwidth=4
+
+set synmaxcol=1000
 
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_camel_case_completion = 1

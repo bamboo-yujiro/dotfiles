@@ -13,6 +13,7 @@ source $ZSH/oh-my-zsh.sh
 # General Settings
 
 # ------------------------------
+export LESSCHARSET=utf-8
 
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 
@@ -207,3 +208,5 @@ alias unicorn:stop='bundle exec rake unicorn:stop'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 alias clip="nc localhost 8377"
+
+export WORKON_HOME=$HOME/.virtualenvs
