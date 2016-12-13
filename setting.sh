@@ -5,6 +5,7 @@ git_user_email="ch11.naji@gmail.com"
 git_username="bamboo-yujiro"
 
 export ZSH="/home/${user_name}/.oh-my-zsh"
+export ~="/home/${user_name}"
 
 apt-get update
 
@@ -36,11 +37,12 @@ make install
 
 apt-get install -y zsh
 
-chsh -s /usr/bin/zsh ${user_name}
-
 if [ ! -e /home/${user_name}/.oh-my-zsh ]; then
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+  chsh -s /bin/bash
 fi
+
+chsh -s /usr/bin/zsh ${user_name}
 
 cat /home/${user_name}/dotfiles/maran.zsh-theme > /home/${user_name}/.oh-my-zsh/themes/maran.zsh-theme
 
