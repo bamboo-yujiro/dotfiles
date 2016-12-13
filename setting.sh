@@ -1,18 +1,26 @@
 #!/bin/sh
+
 user_name="yujiro"
+git_user_email="ch11.naji@gmail.com"
+git_username="bamboo-yujiro"
+
 export ZSH="/home/${user_name}/.oh-my-zsh"
 
 apt-get update
 
 apt-get install -y git build-essential gettext
 
-git config --global user.email "ch11.naji@gmail.com"
+git config --global user.email "${git_user_email}"
 
-git config --global user.name "bamboo-yujiro"
+git config --global user.name "${git_username}"
 
 git config --global color.ui auto
 
-mkdir /home/$user_name/git && cd $_
+if [ ! -e /home/${user_name}/git ]; then
+  mkdir /home/${user_name}/git
+fi
+
+cd /home/${user_name}/git
 
 git clone https://github.com/vim-jp/vim.git
 
@@ -34,8 +42,6 @@ if [ ! -e /home/${user_name}/.oh-my-zsh ]; then
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 fi
 
-git clone https://github.com/bamboo-yujiro/dotfiles.git /home/${user_name}/dotfiles
-
 cat /home/${user_name}/dotfiles/maran.zsh-theme > /home/${user_name}/.oh-my-zsh/themes/maran.zsh-theme
 
 cd /home/${user_name}/dotfiles/
@@ -47,11 +53,10 @@ git submodule update
 for dotfile in .vim .vimrc .zshrc .tmux.conf
 do
   rm -fr /home/${user_name}/$dotfile
-  #ln -vnfs $PWD/$dotfile ~/$dotfile
   ln -vnfs /home/${user_name}/dotfiles/$dotfile /home/${user_name}/$dotfile
 done
 
-chown ${user_name}:${user_name} /home/${user_name}/
+chown -R ${user_name}:${user_name} /home/${user_name}/
 
 su ${user_name}
 
