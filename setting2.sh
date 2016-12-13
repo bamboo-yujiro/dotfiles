@@ -5,8 +5,9 @@ git_user_email="ch11.naji@gmail.com"
 git_username="bamboo-yujiro"
 
 export ZSH="/home/${user_name}/.oh-my-zsh"
+export ~="/home/${user_name}"
 
-apt-get update
+#apt-get update
 
 apt-get install -y git build-essential gettext
 
@@ -16,8 +17,7 @@ git config --global user.name "${git_username}"
 
 git config --global color.ui auto
 
-mv /root/.gitconfig /home/${user_name}/
-
+<<<C
 if [ ! -e /home/${user_name}/git ]; then
   mkdir /home/${user_name}/git
 fi
@@ -66,4 +66,4 @@ su ${user_name}
 vi +":NeoBundleInstall" +:q
 
 exit
-
+C
