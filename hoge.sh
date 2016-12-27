@@ -1,7 +1,4 @@
 #!/bin/sh
 
-su -l yujirotakeyama
+cd /home/yujiro/git
 
-echo $HOME
-
-exit
