@@ -209,4 +209,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 alias clip="nc localhost 8377"
 
+alias pyg='pygmentize -O style=monokai -f console256 -g'
+
 export WORKON_HOME=$HOME/.virtualenvs
