@@ -106,16 +106,17 @@ set ttyfast
 set lazyredraw
 " オンのときは、ウィンドウの幅より長い行は折り返され、次の行に続けて表示される
 set wrap
-function! s:remove_dust()
-    let cursor = getpos(".")
+
+"function! s:remove_dust()
+"    let cursor = getpos(".")
     " 保存時に行末の空白を除去する
-    %s/\s\+$//ge
+"    %s/\s\+$//ge
     " 保存時にtabを2スペースに変換する
-    %s/\t/  /ge
-    call setpos(".", cursor)
-    unlet cursor
-endfunction
-autocmd BufWritePre * call <SID>remove_dust()
+"    %s/\t/  /ge
+"    call setpos(".", cursor)
+"    unlet cursor
+"endfunction
+"autocmd BufWritePre * call <SID>remove_dust()
 
 "------ Search ------"
 " インクリメンタルサーチ
@@ -169,11 +170,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'taichouchou2/html5.vim'
+"NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'vim-javascript'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
+NeoBundle 'slim-template/vim-slim'
+"NeoBundle 'scrooloose/syntastic'
+"let g:syntastic_python_checkers = ['pyflakes']
+
 let g:vim_json_syntax_conceal = 0
 let g:indentLine_color_term = 239
 
@@ -240,6 +245,7 @@ inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
 "" ------ ColorScheme ------"
 syntax on
+"filetype plugin indent on
 set background=dark
 colorscheme hybrid
 
@@ -299,3 +305,20 @@ let g:neocomplcache_manual_completion_start_length = 0
 let g:neocomplcache_caching_percent_in_statusline = 1
 let g:neocomplcache_enable_skip_completion = 1
 let g:neocomplcache_skip_input_time = '0.5'
+
+" Unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+"nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,uf :<C-u>Unite file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+
+
+autocmd BufEnter * :syntax sync fromstart
+autocmd BufNewFile,BufRead *.slim set ft=slim
