@@ -113,7 +113,7 @@ function! s:remove_dust()
     call setpos(".", cursor)
     unlet cursor
 endfunction
-autocmd BufWritePre * call <SID>remove_dust()
+"autocmd BufWritePre * call <SID>remove_dust()
 
 "------ Search ------"
 " インクリメンタルサーチ

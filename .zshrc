@@ -207,3 +207,11 @@ alias unicorn:stop='bundle exec rake unicorn:stop'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 alias clip="nc localhost 8377"
+
+#export PATH="$HOME/.phpenv/bin:$PATH"
+# For PHP Environment
+export PHP_ROOT="${HOME}/.phpenv"
+if [ -d "${PHP_ROOT}" ]; then
+   export PATH=${PHP_ROOT}/bin:$PATH
+   eval "$(phpenv init -)"
+fi
