@@ -13,6 +13,7 @@ source $ZSH/oh-my-zsh.sh
 # General Settings
 
 # ------------------------------
+export LESSCHARSET=utf-8
 
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 
@@ -202,6 +203,7 @@ ls_abbrev() {
 }
 
 alias ll='ls -la'
+alias vi='vim'
 alias unicorn:start='bundle exec rake unicorn:start'
 alias unicorn:stop='bundle exec rake unicorn:stop'
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -215,3 +217,7 @@ if [ -d "${PHP_ROOT}" ]; then
    export PATH=${PHP_ROOT}/bin:$PATH
    eval "$(phpenv init -)"
 fi
+
+alias pyg='pygmentize -O style=monokai -f console256 -g'
+
+export WORKON_HOME=$HOME/.virtualenvs
