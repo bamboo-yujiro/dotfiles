@@ -1,6 +1,6 @@
 #!/bin/sh
 
-user_name="yujiro"
+user_name="vagrant"
 git_user_email="ch11.naji@gmail.com"
 git_username="bamboo-yujiro"
 

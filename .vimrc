@@ -107,20 +107,16 @@ set lazyredraw
 " オンのときは、ウィンドウの幅より長い行は折り返され、次の行に続けて表示される
 set wrap
 
-"function! s:remove_dust()
-"    let cursor = getpos(".")
+function! s:remove_dust()
+    let cursor = getpos(".")
     " 保存時に行末の空白を除去する
-"    %s/\s\+$//ge
+    %s/\s\+$//ge
     " 保存時にtabを2スペースに変換する
-"    %s/\t/  /ge
-"    call setpos(".", cursor)
-"    unlet cursor
-"endfunction
-"    %s/\t/  /ge
-"    call setpos(".", cursor)
-"    unlet cursor
-"endfunction
-"autocmd BufWritePre * call <SID>remove_dust()
+    %s/\t/  /ge
+    call setpos(".", cursor)
+    unlet cursor
+endfunction
+autocmd BufWritePre * call <SID>remove_dust()
 
 "------ Search ------"
 " インクリメンタルサーチ
