@@ -133,12 +133,12 @@ set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " コピペ用
-function CopyPaste()
-    setlocal nonumber!
-    setlocal nocursorline!
-    IndentLinesToggle
-endfunction
-nmap <C-z> :call CopyPaste()<CR>
+"function CopyPaste()
+"    setlocal nonumber!
+"    setlocal nocursorline!
+"    IndentLinesToggle
+"endfunction
+"nmap <C-z> :call CopyPaste()<CR>
 
 au BufRead,BufNewFile *.md set filetype=markdown
 
@@ -319,6 +319,9 @@ nnoremap <silent> ,uf :<C-u>Unite file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
-
 autocmd BufEnter * :syntax sync fromstart
 autocmd BufNewFile,BufRead *.slim set ft=slim
+
+" 前回編集していた箇所にカーソルを移動
+au BufWritePost * mkview
+autocmd BufReadPost * loadview

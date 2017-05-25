@@ -41,6 +41,7 @@ apt-get install -y zsh
 if [ ! -e /home/${user_name}/.oh-my-zsh ]; then
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
   chsh -s /bin/bash
+  chsh -s /usr/bin/zsh ${user_name}
 fi
 
 cat /home/${user_name}/dotfiles/maran.zsh-theme > /home/${user_name}/.oh-my-zsh/themes/maran.zsh-theme
