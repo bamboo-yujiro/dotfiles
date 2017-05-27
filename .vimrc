@@ -323,5 +323,5 @@ autocmd BufEnter * :syntax sync fromstart
 autocmd BufNewFile,BufRead *.slim set ft=slim
 
 " 前回編集していた箇所にカーソルを移動
-au BufWritePost * mkview
-autocmd BufReadPost * loadview
+autocmd BufWinLeave ?* silent mkview
+autocmd BufWinEnter ?* silent loadview
