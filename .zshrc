@@ -221,3 +221,5 @@ fi
 alias pyg='pygmentize -O style=monokai -f console256 -g'
 
 export WORKON_HOME=$HOME/.virtualenvs
+
+export DISABLE_UPDATE_PROMPT="false"
