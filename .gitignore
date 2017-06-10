@@ -1,3 +1,4 @@
 .vim/bundle/*
+.vim/plugged/*
 !.vim/bundle/neobundle.vim
 .vim/view
