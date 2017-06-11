@@ -82,6 +82,8 @@ clone dotfiles
     $ git submodule update
     $ ./setup.sh
     $ vim .vimrc
+    :PlugInstall
+    :NeoBundleInstall
     $ exit
 
     $ login
