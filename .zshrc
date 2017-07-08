@@ -206,11 +206,22 @@ alias ll='ls -la'
 alias vi='vim'
 alias unicorn:start='bundle exec rake unicorn:start'
 alias unicorn:stop='bundle exec rake unicorn:stop'
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 alias clip="nc localhost 8377"
 
-#export PATH="$HOME/.phpenv/bin:$PATH"
+# For Perl Environment
+export PERL_ROOT="${HOME}/.plenv"
+if [ -d "${PERL_ROOT}" ]; then
+  export PATH="$HOME/.plenv/bin:$PATH"
+  eval "$(plenv init -)"
+fi
+
+# For Ruby Environment
+export RUBY_ROOT="${HOME}/.rbenv"
+if [ -d "${RUBY_ROOT}" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
 # For PHP Environment
 export PHP_ROOT="${HOME}/.phpenv"
 if [ -d "${PHP_ROOT}" ]; then
