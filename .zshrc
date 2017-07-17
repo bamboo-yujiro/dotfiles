@@ -229,6 +229,14 @@ if [ -d "${PHP_ROOT}" ]; then
    eval "$(phpenv init -)"
 fi
 
+# For Python Environment
+export PYTHON_ROOT="${HOME}/.pyenv"
+if [ -d "${PYTHON_ROOT}" ]; then
+   export PATH=${PYTHON_ROOT}/bin:$PATH
+   eval "$(pyenv init -)"
+   eval "$(pyenv virtualenv-init -)"
+fi
+
 alias pyg='pygmentize -O style=monokai -f console256 -g'
 
 export WORKON_HOME=$HOME/.virtualenvs
