@@ -45,7 +45,7 @@ clone dotfiles
     :NeoBundleInstall
     $ exit
 
-    $ login
+    〜 Login 〜
 
 
 # CentOS
@@ -90,4 +90,4 @@ clone dotfiles
     :NeoBundleInstall
     $ exit
 
-    $ login
+    〜 Login 〜
