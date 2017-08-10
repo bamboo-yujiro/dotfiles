@@ -289,7 +289,8 @@ autocmd Filetype json setl conceallevel=0
 
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
 
-autocmd FileType php,ctp :set shiftwidth=2
+autocmd FileType php,ctp :set tabstop=4
+autocmd FileType php,ctp :set shiftwidth=4
 
 autocmd FileType python :set tabstop=4
 autocmd FileType python :set shiftwidth=4
@@ -335,9 +336,9 @@ if has('vim_starting')
   end
 endif
 
-call plug#begin('~/.vim/plugged')
-  Plug 'junegunn/vim-plug',
-        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
-Plug 'jwalton512/vim-blade'
-call plug#end()
+"call plug#begin('~/.vim/plugged')
+"  Plug 'junegunn/vim-plug',
+"        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
+"Plug 'jwalton512/vim-blade'
+"call plug#end()
 
