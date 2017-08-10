@@ -35,14 +35,17 @@ clone dotfiles
     $ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
     $ git clone https://github.com/bamboo-yujiro/dotfiles.git ~/dotfiles
     $ cat ~/dotfiles/maran.zsh-theme > ~/.oh-my-zsh/themes/maran.zsh-theme
+    $ cd
     $ cd dotfiles
     $ git submodule init
     $ git submodule update
     $ ./setup.sh
     $ vim .vimrc
+    :PlugInstall
+    :NeoBundleInstall
     $ exit
 
-    $ login
+    〜 Login 〜
 
 
 # CentOS
@@ -77,6 +80,7 @@ clone dotfiles
     $ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
     $ git clone https://github.com/bamboo-yujiro/dotfiles.git ~/dotfiles
     $ cat ~/dotfiles/maran.zsh-theme > ~/.oh-my-zsh/themes/maran.zsh-theme
+    $ cd
     $ cd dotfiles
     $ git submodule init
     $ git submodule update
@@ -86,4 +90,4 @@ clone dotfiles
     :NeoBundleInstall
     $ exit
 
-    $ login
+    〜 Login 〜
