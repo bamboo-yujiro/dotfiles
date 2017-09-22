@@ -182,13 +182,6 @@ NeoBundle 'slim-template/vim-slim'
 let g:vim_json_syntax_conceal = 0
 let g:indentLine_color_term = 239
 
-" Powerline
-NeoBundle 'alpaca-tc/alpaca_powertabline'
-NeoBundle 'https://github.com/Lokaltog/powerline.git'
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-let g:Powerline_symbols = 'fancy'
-set noshowmode
-
 NeoBundle 'scrooloose/nerdtree'
   nmap <silent> <C-e>      :NERDTreeToggle<CR>
   "vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
@@ -324,21 +317,16 @@ autocmd BufEnter * :syntax sync fromstart
 autocmd BufNewFile,BufRead *.slim set ft=slim
 
 " 前回編集していた箇所にカーソルを移動
-autocmd BufWinLeave ?* silent mkview
-autocmd BufWinEnter ?* silent loadview
+"autocmd BufWinLeave ?* silent mkview
+"autocmd BufWinEnter ?* silent loadview
 
-if has('vim_starting')
-  set rtp+=~/.vim/plugged/vim-plug
-  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
-    echo 'install vim-plug...'
-    call system('mkdir -p ~/.vim/plugged/vim-plug')
-    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
-  end
-endif
+NeoBundle 'jwalton512/vim-blade'
 
-"call plug#begin('~/.vim/plugged')
-"  Plug 'junegunn/vim-plug',
-"        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
-"Plug 'jwalton512/vim-blade'
-"call plug#end()
+"Airline
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+set t_Co=256
 
+let g:airline_theme="luna"
+let g:airline_powerline_fonts = 1
