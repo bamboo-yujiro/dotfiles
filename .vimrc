@@ -81,7 +81,6 @@ set ruler
 set number
 " 常にカーソル行を真ん中に
 set scrolloff=999
-
 " カレント行をハイライト
 set cursorline
 " 入力中のコマンドを表示する
@@ -107,6 +106,7 @@ set lazyredraw
 " オンのときは、ウィンドウの幅より長い行は折り返され、次の行に続けて表示される
 set wrap
 
+"余計な文字を削除する
 function! s:remove_dust()
     let cursor = getpos(".")
     " 保存時に行末の空白を除去する
@@ -132,14 +132,6 @@ set hlsearch
 " EscEsc でハイライトを消す
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" コピペ用
-"function CopyPaste()
-"    setlocal nonumber!
-"    setlocal nocursorline!
-"    IndentLinesToggle
-"endfunction
-"nmap <C-z> :call CopyPaste()<CR>
-
 au BufRead,BufNewFile *.md set filetype=markdown
 
 "------ NeoBundle ------"
@@ -150,50 +142,54 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" Required:
+" Required: NeoBundleFetch によって neobundle を有効にする. call neobundle#begin, #end がないと コマンドが使用できない.
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 call neobundle#end()
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
 " My Bundles here:
-
-" NeoBundle 'Shougo/neosnippet.vim'
-" NeoBundle 'Shougo/neosnippet-snippets'
-" NeoBundle 'tpope/vim-fugitive'
-" NeoBundle 'kien/ctrlp.vim'
-" NeoBundle 'flazz/vim-colorschemes'
-
-" NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'mattn/emmet-vim'
-"NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'vim-javascript'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'slim-template/vim-slim'
-"NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'jwalton512/vim-blade'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'vim-syntastic/syntastic'
+NeoBundle 'scrooloose/nerdtree'
+
+" Syntax 設定
 "let g:syntastic_python_checkers = ['pyflakes']
+"let g:syntastic_enable_perl_checker = 1
+"let g:syntastic_perl_checkers = ['perl', 'podchecker']
+"let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 let g:vim_json_syntax_conceal = 0
 let g:indentLine_color_term = 239
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
-NeoBundle 'scrooloose/nerdtree'
-  nmap <silent> <C-e>      :NERDTreeToggle<CR>
-  "vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-  "omap <silent> <C-e>      :NERDTreeToggle<CR>
-  "imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-  "cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
-  autocmd vimenter * if !argc() | NERDTree | endif
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-  let g:NERDTreeShowHidden=1
+" Nerdtree
+nmap <silent> <C-e>      :NERDTreeToggle<CR>
+"vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+"omap <silent> <C-e>      :NERDTreeToggle<CR>
+"imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+"cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let g:NERDTreeShowHidden=1
 
 "------ neocomplete ------"
-NeoBundle 'Shougo/neocomplete.vim'
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -235,7 +231,6 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 " Enter で決定
 inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
-
 "" ------ ColorScheme ------"
 syntax on
 "filetype plugin indent on
@@ -243,7 +238,6 @@ set background=dark
 colorscheme hybrid
 
 "" neocomplcache
-NeoBundle 'Shougo/neocomplcache'
 " Disable AutoComplPop.
 "let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -278,6 +272,7 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 
+" 各ファイルフォーマットごとの設定
 autocmd Filetype json setl conceallevel=0
 
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
@@ -300,9 +295,6 @@ let g:neocomplcache_caching_percent_in_statusline = 1
 let g:neocomplcache_enable_skip_completion = 1
 let g:neocomplcache_skip_input_time = '0.5'
 
-" Unite
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
@@ -316,17 +308,7 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 autocmd BufEnter * :syntax sync fromstart
 autocmd BufNewFile,BufRead *.slim set ft=slim
 
-" 前回編集していた箇所にカーソルを移動
-"autocmd BufWinLeave ?* silent mkview
-"autocmd BufWinEnter ?* silent loadview
-
-NeoBundle 'jwalton512/vim-blade'
-
-"Airline
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
+" Airline の設定
 set t_Co=256
-
 let g:airline_theme="luna"
 let g:airline_powerline_fonts = 1
