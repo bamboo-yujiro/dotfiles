@@ -237,6 +237,14 @@ if [ -d "${PYTHON_ROOT}" ]; then
    eval "$(pyenv virtualenv-init -)"
 fi
 
+# For Go Environment
+export GO_ROOT="${HOME}/.goenv"
+if [ -d "${GO_ROOT}" ]; then
+   export PATH=${GO_ROOT}/bin:$PATH
+   eval "$(goenv init -)"
+fi
+
+
 alias pyg='pygmentize -O style=monokai -f console256 -g'
 
 export WORKON_HOME=$HOME/.virtualenvs
