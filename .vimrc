@@ -16,6 +16,11 @@ endif
 set laststatus=2
 set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=\ (%v,%l)/%L%8P\
 
+" 設定ファイル（ignore対象）の読み込み
+if filereadable(expand("~/dotfiles/.vimrc.local"))
+  source ~/dotfiles/.vimrc.local
+endif
+
 "------ keymap ------"
 inoremap <C-c> <ESC>
 inoremap <C-b> <left>
@@ -277,11 +282,17 @@ autocmd Filetype json setl conceallevel=0
 
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
 
-autocmd FileType php,ctp :set tabstop=4
-autocmd FileType php,ctp :set shiftwidth=4
+" 各ファイルフォーマットタブインデント数のデフォルト値
+if !exists("php_tabnum") | let php_tabnum = 4 | endif
+if !exists("python_tabnum") | let python_tabnum = 4 | endif
+if !exists("ruby_tabnum") | let ruby_tabnum = 2 | endif
+if !exists("perl_tabnum") | let perl_tabnum = 4 | endif
 
-autocmd FileType python :set tabstop=4
-autocmd FileType python :set shiftwidth=4
+autocmd FileType php,ctp execute "set tabstop=".php_tabnum
+autocmd FileType php,ctp execute "set shiftwidth=".php_tabnum
+
+autocmd FileType python execute "set tabstop=".python_tabnum
+autocmd FileType python execute "set shiftwidth=".python_tabnum
 
 set synmaxcol=1000
 

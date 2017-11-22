@@ -2,3 +2,4 @@
 .vim/plugged/*
 !.vim/bundle/neobundle.vim
 .vim/view
+.vimrc.local
