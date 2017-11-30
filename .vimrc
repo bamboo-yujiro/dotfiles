@@ -185,6 +185,9 @@ colorscheme hybrid
 "let g:syntastic_perl_checkers = ['perl', 'podchecker']
 "let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_ruby_checkers = ['rubocop']
+
 let g:vim_json_syntax_conceal = 0
 let g:indentLine_color_term = 239
 let g:syntastic_always_populate_loc_list = 1
@@ -308,7 +311,8 @@ let g:neocomplcache_caching_percent_in_statusline = 1
 let g:neocomplcache_enable_skip_completion = 1
 let g:neocomplcache_skip_input_time = '0.5'
 
-let g:unite_enable_start_insert=1
+" Unite スタート時はインサートモードにしない
+let g:unite_enable_start_insert=0
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
