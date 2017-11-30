@@ -1,3 +1,5 @@
+.cache/*
+!.gitignore
 !.vim/bundle/neobundle.vim
 .vim/view
 .vimrc.local
