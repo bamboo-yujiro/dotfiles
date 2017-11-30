@@ -139,37 +139,45 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 au BufRead,BufNewFile *.md set filetype=markdown
 
-"------ NeoBundle ------"
-if has('vim_starting')
-  set nocompatible               " Be iMproved
+"------ Dein.vim ------"
+let s:dein_dir = expand('~/.cache/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  " プラグインリストを収めた TOML ファイル
+  " 予め TOML ファイル（後述）を用意しておく
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  " 設定終了
+  call dein#end()
+  call dein#save_state()
+endif
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
 endif
 
-" Required: NeoBundleFetch によって neobundle を有効にする. call neobundle#begin, #end がないと コマンドが使用できない.
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
-
-" My Bundles here:
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'vim-javascript'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'jwalton512/vim-blade'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'vim-syntastic/syntastic'
-NeoBundle 'scrooloose/nerdtree'
+"" ------ ColorScheme ------"
+syntax on
+"filetype plugin indent on
+set background=dark
+colorscheme hybrid
 
 " Syntax 設定
 "let g:syntastic_python_checkers = ['pyflakes']
@@ -235,12 +243,6 @@ endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 " Enter で決定
 inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
-
-"" ------ ColorScheme ------"
-syntax on
-"filetype plugin indent on
-set background=dark
-colorscheme hybrid
 
 "" neocomplcache
 " Disable AutoComplPop.

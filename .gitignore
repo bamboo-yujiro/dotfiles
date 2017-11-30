@@ -1,5 +1,4 @@
-.vim/bundle/*
-.vim/plugged/*
+.cache
 !.vim/bundle/neobundle.vim
 .vim/view
 .vimrc.local
