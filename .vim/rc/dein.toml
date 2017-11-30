@@ -1,8 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
-[[plugins]]
 repo = 'w0ng/vim-hybrid'
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -21,8 +19,6 @@ repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 [[plugins]]
-repo = 'Shougo/neocomplcache'
-[[plugins]]
 repo = 'jwalton512/vim-blade'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -34,5 +30,3 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'vim-syntastic/syntastic'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-
-
