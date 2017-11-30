@@ -1,0 +1,102 @@
+#set-window-option -g utf8 on
+
+set -s escape-time 0
+set-option -g display-panes-time 10000
+
+set-option -g prefix C-t
+set -g history-limit 100000
+unbind-key C-b
+bind-key t send-prefix
+set-window-option -g mode-keys vi
+set -g default-terminal "screen-256color"
+bind-key s split-window -h
+
+# 窓移動
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+bind C-h select-pane -L
+bind C-j select-pane -D
+bind C-k select-pane -U
+bind C-l select-pane -R
+
+# 窓幅調整
+bind -r H resize-pane -L 6
+bind -r L resize-pane -R 6
+bind -r J resize-pane -D 6
+bind -r K resize-pane -U 6
+
+
+# ペインのインデックスを1から始める
+setw -g pane-base-index 1
+
+# ウィンドウのインデックスを1から始める
+set -g base-index 1
+
+# キーストロークのディレイを減らす
+set -sg escape-time 1
+
+
+# ステータスバーをトップに配置する
+#set-option -g status-position top
+
+# 左右のステータスバーの長さを決定する
+set-option -g status-left-length 90
+set-option -g status-right-length 90
+
+# #H => マシン名
+# #P => ペイン番号
+# 最左に表示
+set-option -g status-left '#H:[#P]'
+
+# Wi-Fi、バッテリー残量、現在時刻
+# 最右に表示
+#set-option -g status-right '#(get_ssid) #(battery -c tmux) [%Y-%m-%d(%a) %H:%M]'
+set-option -g status-right ''
+
+# ステータスバーを Utf-8 に対応
+# set-option -g status-utf8 on
+
+# ステータスバーを1秒毎に描画し直す
+set-option -g status-interval 1
+
+# センタライズ（主にウィンドウ番号など）
+#set-option -g status-justify centre
+
+# prefix 押下時にステータスラインの色を反転
+set-option -g status-left '#[fg=cyan,bg=#303030]#{?client_prefix,#[reverse],} #H[#S] #[default]'
+
+# status line の背景色を指定する。
+set-option -g status-bg "colour238"
+
+# status line の文字色を指定する。
+set-option -g status-fg "colour255"
+
+# アクティブなウィンドウを目立たせる
+setw -g window-status-current-fg red
+
+# コピーモードを設定する
+## viのキーバインドを使用する
+setw -g mode-keys vi
+## クリップボード共有を有効にする
+## コピーモードの操作をvi風に設定する
+
+bind-key -T copy-mode-vi V send-keys -X select-line
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X begin-selection
+#bind-key -t vi-copy Enter copy-pipe "nc localhost 8377"
+
+set -g default-command "reattach-to-user-namespace -l ${SHELL}"
+bind-key -T copy-mode-vi y     send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi Enter send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+
+bind-key -T copy-mode C-w send -X copy-pipe-and-cancel 'pbcopy'
+bind-key -T copy-mode C-u send -X page-up
+bind-key -T copy-mode C-d send -X page-down
+
+# ウィンドウの引き継ぎ
+bind c new-window -c "#{pane_current_path}"
+bind % split-window -hc "#{pane_current_path}"
+bind '"' split-window -vc "#{pane_current_path}"
