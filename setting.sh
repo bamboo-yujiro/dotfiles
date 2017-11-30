@@ -52,7 +52,7 @@ git submodule init
 
 git submodule update
 
-for dotfile in .vim .vimrc .zshrc .tmux.conf
+for dotfile in .vim .vimrc .zshrc .tmux.conf .cache
 do
   rm -fr /home/${user_name}/$dotfile
   ln -vnfs /home/${user_name}/dotfiles/$dotfile /home/${user_name}/$dotfile
