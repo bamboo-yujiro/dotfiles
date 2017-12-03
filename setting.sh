@@ -62,7 +62,5 @@ chown -R ${user_name}:${user_name} /home/${user_name}/
 
 su ${user_name}
 
-vi +":NeoBundleInstall" +:q
-
 exit
 
