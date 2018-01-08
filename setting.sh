@@ -1,6 +1,6 @@
 #!/bin/sh
 
-user_name="vagrant"
+user_name="ubuntu"
 git_user_email="ch11.naji@gmail.com"
 git_username="bamboo-yujiro"
 
@@ -61,8 +61,6 @@ done
 chown -R ${user_name}:${user_name} /home/${user_name}/
 
 su ${user_name}
-
-vi +":NeoBundleInstall" +:q
 
 exit
 

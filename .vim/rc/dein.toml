@@ -19,6 +19,8 @@ repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 [[plugins]]
+repo = 'Shougo/neocomplcache'
+[[plugins]]
 repo = 'jwalton512/vim-blade'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
