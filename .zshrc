@@ -209,38 +209,38 @@ alias unicorn:stop='bundle exec rake unicorn:stop'
 alias clip="nc localhost 8377"
 
 # For Perl Environment
-export PERL_ROOT="${HOME}/.plenv"
-if [ -d "${PERL_ROOT}" ]; then
+export PYENV_ROOT="${HOME}/.plenv"
+if [ -d "${PYENV_ROOT}" ]; then
   export PATH="$HOME/.plenv/bin:$PATH"
   eval "$(plenv init -)"
 fi
 
 # For Ruby Environment
-export RUBY_ROOT="${HOME}/.rbenv"
-if [ -d "${RUBY_ROOT}" ]; then
+export RBENV_ROOT="${HOME}/.rbenv"
+if [ -d "${RBENV_ROOT}" ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
 
 # For PHP Environment
-export PHP_ROOT="${HOME}/.phpenv"
-if [ -d "${PHP_ROOT}" ]; then
-   export PATH=${PHP_ROOT}/bin:$PATH
+export PHPENV_ROOT="${HOME}/.phpenv"
+if [ -d "${PHPENV_ROOT}" ]; then
+   export PATH=${PHPENV_ROOT}/bin:$PATH
    eval "$(phpenv init -)"
 fi
 
 # For Python Environment
-export PYTHON_ROOT="${HOME}/.pyenv"
-if [ -d "${PYTHON_ROOT}" ]; then
-   export PATH=${PYTHON_ROOT}/bin:$PATH
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+   export PATH=${PYENV_ROOT}/bin:$PATH
    eval "$(pyenv init -)"
    eval "$(pyenv virtualenv-init -)"
 fi
 
 # For Go Environment
-export GO_ROOT="${HOME}/.goenv"
-if [ -d "${GO_ROOT}" ]; then
-   export PATH=${GO_ROOT}/bin:$PATH
+export GOENV_ROOT="${HOME}/.goenv"
+if [ -d "${GOENV_ROOT}" ]; then
+   export PATH=${GOENV_ROOT}/bin:$PATH
    eval "$(goenv init -)"
 fi
 
@@ -250,3 +250,5 @@ alias pyg='pygmentize -O style=monokai -f console256 -g'
 export WORKON_HOME=$HOME/.virtualenvs
 
 export DISABLE_UPDATE_PROMPT="false"
+
+export "EDITOR=vim"
