@@ -252,3 +252,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export DISABLE_UPDATE_PROMPT="false"
 
 export "EDITOR=vim"
+
+# NeoVim
+export XDG_CONFIG_HOME=~/.config

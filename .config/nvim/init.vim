@@ -140,6 +140,10 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 au BufRead,BufNewFile *.md set filetype=markdown
 
 "------ Dein.vim ------"
+"let g:python_host_prog = expand('~/.pyenv/shims/python')
+let g:python_host_prog  = expand('/usr/local/bin/python3')
+let g:python3_host_prog  = expand('/usr/local/bin/python3')
+
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim 本体
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -156,7 +160,7 @@ if dein#load_state(s:dein_dir)
 
   " プラグインリストを収めた TOML ファイル
   " 予め TOML ファイル（後述）を用意しておく
-  let g:rc_dir    = expand('~/.vim/rc')
+  let g:rc_dir    = expand('~/.config/nvim/')
   let s:toml      = g:rc_dir . '/dein.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
@@ -205,83 +209,6 @@ autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let g:NERDTreeShowHidden=1
 
-"------ neocomplete ------"
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-highlight Pmenu ctermbg=4
-highlight PmenuSel ctermbg=1
-highlight PMenuSbar ctermbg=4
-" 補完ウィンドウの設定
-set completeopt=menuone
-" 補完ウィンドウの設定
-set completeopt=menuone
-" rsenseでの自動補完機能を有効化
-let g:rsenseUseOmniFunc = 1
-" let g:rsenseHome = '/usr/local/lib/rsense-0.3'
-" auto-ctagsを使ってファイル保存時にtagsファイルを更新
-let g:auto_ctags = 1
-" 起動時に有効化
-let g:neocomplete_enable_at_startup = 1
-" 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplete_enable_smart_case = 1
-" _(アンダースコア)区切りの補完を有効化
-let g:neocomplete_enable_underbar_completion = 1
-let g:neocomplete_enable_camel_case_completion  =  1
-" 最初の補完候補を選択状態にする => 無効
-" let g:neocomplete_enable_auto_select = 1
-" ポップアップメニューで表示される候補の数
-let g:neocomplete_max_list = 20
-" シンタックスをキャッシュするときの最小文字長
-let g:neocomplete_min_syntax_length = 3
-" 補完の設定
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-" Enter で決定
-inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "<CR>"
-
-"" neocomplete
-" Disable AutoComplPop.
-"let g:acp_enableAtStartup = 0
-" Use neocomplete.
-"let g:neocomplete_enable_at_startup = 1
-" Use smartcase.
-"let g:neocomplete_enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete_min_syntax_length = 3
-let g:neocomplete_lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#smart_close_popup() . "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-
 " 各ファイルフォーマットごとの設定
 autocmd Filetype json setl conceallevel=0
 
@@ -301,16 +228,6 @@ autocmd FileType python execute "set shiftwidth=".python_tabnum
 
 set synmaxcol=1000
 
-let g:neocomplete_enable_at_startup = 1
-let g:neocomplete_enable_camel_case_completion = 1
-let g:neocomplete_enable_underbar_completion = 1
-let g:neocomplete_smart_case = 1
-let g:neocomplete_min_syntax_length = 3
-let g:neocomplete_manual_completion_start_length = 0
-let g:neocomplete_caching_percent_in_statusline = 1
-let g:neocomplete_enable_skip_completion = 1
-let g:neocomplete_skip_input_time = '0.5'
-
 " Unite スタート時はインサートモードにしない
 let g:unite_enable_start_insert=0
 let g:unite_source_history_yank_enable =1
@@ -329,3 +246,12 @@ autocmd BufNewFile,BufRead *.slim set ft=slim
 set t_Co=256
 let g:airline_theme="luna"
 let g:airline_powerline_fonts = 1
+
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+
+" for cursor
+set guicursor=
+
+" for deoplete
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><CR>  pumvisible() ? deoplete#close_popup() : "<CR>"
