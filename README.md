@@ -2,6 +2,15 @@
 
 At first, set your terminal profile to yujiro.terminal
 
+# OSX
+
+`$ brew install tmux`
+
+`$ brew install reattach-to-user-namespace`
+
+`$ cp .tmux.conf.osx .tmux.conf`
+
+
 # Ubuntu
 preparation
 

@@ -86,7 +86,6 @@ setw -g mode-keys vi
 bind-key -T copy-mode-vi V send-keys -X select-line
 bind-key -T copy-mode-vi v send-keys -X begin-selection
 bind-key -T copy-mode-vi C-v send-keys -X begin-selection
-#bind-key -t vi-copy Enter copy-pipe "nc localhost 8377"
 
 set -g default-command "reattach-to-user-namespace -l ${SHELL}"
 bind-key -T copy-mode-vi y     send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
