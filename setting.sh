@@ -1,7 +1,7 @@
 #!/bin/sh
 
-user_name="ubuntu"
-git_user_email="bamboo.yujiro.x@gmail.com"
+ user_name="ubuntu"
+  git_user_email="bamboo.yujiro.x@gmail.com"
 git_username="bamboo-yujiro"
 
 export ZSH="/home/${user_name}/.oh-my-zsh"
