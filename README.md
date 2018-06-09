@@ -17,7 +17,7 @@ preparation
     $ sudo apt-get update
     $ sudo apt-get install git build-essential gettext
 
-    $ git config --global user.email "ch11.naji@gmail.com"
+    $ git config --global user.email "bamboo.yujiro.x@gmail.com"
     $ git config --global user.name "bamboo-yujiro"
     $ git config --global color.ui auto
 
