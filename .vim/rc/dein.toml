@@ -3,8 +3,6 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 [[plugins]]
-repo = 'mattn/emmet-vim'
-[[plugins]]
 repo = 'hail2u/vim-css3-syntax'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
@@ -17,9 +15,9 @@ repo = 'Shougo/unite.vim'
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 [[plugins]]
-repo = 'Shougo/neocomplete.vim'
-[[plugins]]
 repo = 'Shougo/neocomplcache'
+[[plugins]]
+repo = 'Shougo/neocomplcache-rsense.vim'
 [[plugins]]
 repo = 'jwalton512/vim-blade'
 [[plugins]]
