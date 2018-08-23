@@ -205,7 +205,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let g:NERDTreeShowHidden=1
 
-"------ neocomplete ------"
+"------ neocomplcache ------"
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -222,64 +222,64 @@ let g:rsenseUseOmniFunc = 1
 " auto-ctagsを使ってファイル保存時にtagsファイルを更新
 let g:auto_ctags = 1
 " 起動時に有効化
-let g:neocomplete_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 1
 " 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplete_enable_smart_case = 1
+let g:neocomplcache_enable_smart_case = 1
 " _(アンダースコア)区切りの補完を有効化
-let g:neocomplete_enable_underbar_completion = 1
-let g:neocomplete_enable_camel_case_completion  =  1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_enable_camel_case_completion  =  1
 " 最初の補完候補を選択状態にする => 無効
-" let g:neocomplete_enable_auto_select = 1
+" let g:neocomplcache_enable_auto_select = 1
 " ポップアップメニューで表示される候補の数
-let g:neocomplete_max_list = 20
+let g:neocomplcache_max_list = 20
 " シンタックスをキャッシュするときの最小文字長
-let g:neocomplete_min_syntax_length = 3
+let g:neocomplcache_min_syntax_length = 3
 " 補完の設定
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
+if !exists('g:neocomplcache#force_omni_input_patterns')
+  let g:neocomplcache#force_omni_input_patterns = {}
 endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
+let g:neocomplcache#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+if !exists('g:neocomplcache#keyword_patterns')
+        let g:neocomplcache#keyword_patterns = {}
 endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+let g:neocomplcache#keyword_patterns['default'] = '\h\w*'
 " Enter で決定
-inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "<CR>"
+inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
-"" neocomplete
+"" neocomplcache
 " Disable AutoComplPop.
 "let g:acp_enableAtStartup = 0
-" Use neocomplete.
-"let g:neocomplete_enable_at_startup = 1
+" Use neocomplcache.
+"let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
-"let g:neocomplete_enable_smart_case = 1
+"let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplete_min_syntax_length = 3
-let g:neocomplete_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
-let g:neocomplete_dictionary_filetype_lists = {
+let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : ''
     \ }
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#smart_close_popup() . "\<CR>"
+  return neocomplcache#smart_close_popup() . "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 
 " 各ファイルフォーマットごとの設定
@@ -301,15 +301,15 @@ autocmd FileType python execute "set shiftwidth=".python_tabnum
 
 set synmaxcol=1000
 
-let g:neocomplete_enable_at_startup = 1
-let g:neocomplete_enable_camel_case_completion = 1
-let g:neocomplete_enable_underbar_completion = 1
-let g:neocomplete_smart_case = 1
-let g:neocomplete_min_syntax_length = 3
-let g:neocomplete_manual_completion_start_length = 0
-let g:neocomplete_caching_percent_in_statusline = 1
-let g:neocomplete_enable_skip_completion = 1
-let g:neocomplete_skip_input_time = '0.5'
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_manual_completion_start_length = 0
+let g:neocomplcache_caching_percent_in_statusline = 1
+let g:neocomplcache_enable_skip_completion = 1
+let g:neocomplcache_skip_input_time = '0.5'
 
 " Unite スタート時はインサートモードにしない
 let g:unite_enable_start_insert=0
