@@ -202,6 +202,7 @@ ls_abbrev() {
 
 }
 
+alias sudo='sudo '
 alias ll='ls -la'
 alias vi='vim'
 alias unicorn:start='bundle exec rake unicorn:start'
