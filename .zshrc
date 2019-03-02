@@ -256,3 +256,6 @@ export "EDITOR=vim"
 
 # NeoVim
 export XDG_CONFIG_HOME=~/.config
+
+# こうしないと色がおかしくなる
+alias tmux='tmux -2'
