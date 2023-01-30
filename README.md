@@ -10,6 +10,9 @@ At first, set your terminal profile to yujiro.terminal
 
 `$ cp .tmux.conf.osx .tmux.conf`
 
+`$ cd ~ && mkdir .cache && sudo chmod -R 777 .cache`
+
+
 
 # Ubuntu
 preparation
