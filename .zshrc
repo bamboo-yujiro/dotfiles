@@ -259,3 +259,25 @@ export XDG_CONFIG_HOME=~/.config
 
 # こうしないと色がおかしくなる
 alias tmux='tmux -2'
+export PATH="$PATH:/usr/local/opt/mongodb-community@4.0/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/Users/yujiro/Library/Android/sdk/platform-tools:$PATH"
+export PATH="/Users/yujiro/development/flutter/bin:$PATH"
+export PATH="/Users/yujiro/development/flutter/.pub-cache/bin:$PATH"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/Users/yujiro/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/Users/yujiro/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/Users/yujiro/opt/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/Users/yujiro/opt/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+

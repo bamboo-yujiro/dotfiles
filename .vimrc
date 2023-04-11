@@ -42,8 +42,8 @@ nnoremap gj j
 nnoremap gk k
 
 "send to clipboard"
-vnoremap <silent>y y :call system('nc localhost 8377', @0)<CR>
-vnoremap <silent>d d :call system('nc localhost 8377', @1)<CR>
+vnoremap <silent>y y :call system('pbcopy', @0)<CR>
+vnoremap <silent>d d :call system('pbcopy', @1)<CR>
 
 nnoremap <F5> :<C-u>edit $MYVIMRC<Enter>
 nnoremap <F6> :<C-u>source $MYVIMRC<Enter>
@@ -341,3 +341,8 @@ autocmd BufNewFile,BufRead *.slim set ft=slim
 set t_Co=256
 let g:airline_theme="luna"
 let g:airline_powerline_fonts = 1
+
+" incompatible library version の対応
+set rubydll=''
+
+set re=0
