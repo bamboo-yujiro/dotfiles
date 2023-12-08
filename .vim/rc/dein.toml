@@ -30,3 +30,7 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'vim-syntastic/syntastic'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merged = '0'
