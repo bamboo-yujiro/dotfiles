@@ -24,6 +24,7 @@
             }
         }
     },
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "diagnostic.enable": false
 }
 

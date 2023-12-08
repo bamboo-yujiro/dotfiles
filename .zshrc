@@ -288,3 +288,5 @@ export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 alias cd_sogoori='cd ~/works/baasatrakuza-server-sogo-ori-docker/pixim/apps/reserve_source/application/modules/sogo_ori/'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
