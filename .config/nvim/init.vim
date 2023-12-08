@@ -142,7 +142,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 "------ Dein.vim ------"
 "let g:python_host_prog = expand('~/.pyenv/shims/python')
 let g:python_host_prog  = expand('/usr/local/bin/python3')
-let g:python3_host_prog  = expand('/usr/local/bin/python3')
+let g:python3_host_prog  = expand('/opt/homebrew/bin/python3')
 
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim 本体

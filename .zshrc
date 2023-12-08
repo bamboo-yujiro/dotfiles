@@ -257,14 +257,18 @@ export "EDITOR=vim"
 # NeoVim
 export XDG_CONFIG_HOME=~/.config
 
+export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 # こうしないと色がおかしくなる
 alias tmux='tmux -2'
-export PATH="$PATH:/usr/local/opt/mongodb-community@4.0/bin:$PATH"
+export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/Users/yujiro/Library/Android/sdk/platform-tools:$PATH"
 export PATH="/Users/yujiro/development/flutter/bin:$PATH"
 export PATH="/Users/yujiro/development/flutter/.pub-cache/bin:$PATH"
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=/opt/homebrew/bin/:$PATH
+export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -281,3 +285,6 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 #unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+alias cd_sogoori='cd ~/works/baasatrakuza-server-sogo-ori-docker/pixim/apps/reserve_source/application/modules/sogo_ori/'
