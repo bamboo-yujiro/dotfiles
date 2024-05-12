@@ -116,8 +116,10 @@ function! s:remove_dust()
     let cursor = getpos(".")
     " 保存時に行末の空白を除去する
     %s/\s\+$//ge
-    " 保存時にtabを2スペースに変換する
-    %s/\t/  /ge
+    " Goファイル以外で、保存時にtabを2スペースに変換する
+    if &filetype != 'go'
+        %s/\t/  /ge
+    endif
     call setpos(".", cursor)
     unlet cursor
 endfunction
@@ -254,6 +256,8 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 let g:rsenseHome = expand("*Rsenseのインストールパスをここにペースト*")
 let g:rsenseUseOmniFunc = 1
 
+" GO
+autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 " Unite スタート時はインサートモードにしない
 let g:unite_enable_start_insert=0

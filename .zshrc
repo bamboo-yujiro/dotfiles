@@ -287,6 +287,16 @@ export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
 
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
-alias cd_sogoori='cd ~/works/baasatrakuza-server-sogo-ori-docker/pixim/apps/reserve_source/application/modules/sogo_ori/'
+alias ggn='git grep -n'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
+export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+alias findN='find ./ -name'
