@@ -4,3 +4,4 @@
 !.vim/bundle/neobundle.vim
 .vim/view
 .vimrc.local
+.vim/session.vim
