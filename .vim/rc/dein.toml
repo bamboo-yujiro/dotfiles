@@ -9,10 +9,6 @@ repo = 'Yggdroot/indentLine'
 [[plugins]]
 repo = 'elzr/vim-json'
 [[plugins]]
-repo = 'slim-template/vim-slim'
-[[plugins]]
-repo = 'Shougo/unite.vim'
-[[plugins]]
 repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
