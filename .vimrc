@@ -259,20 +259,6 @@ let g:rsenseUseOmniFunc = 1
 " GO
 autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
 
-" Unite スタート時はインサートモードにしない
-let g:unite_enable_start_insert=0
-let g:unite_source_history_yank_enable =1
-let g:unite_source_file_mru_limit = 200
-nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-"nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> ,uf :<C-u>Unite file<CR>
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
-
-autocmd BufEnter * :syntax sync fromstart
-autocmd BufNewFile,BufRead *.slim set ft=slim
-
 " Airline の設定
 set t_Co=256
 let g:airline_theme="luna"
