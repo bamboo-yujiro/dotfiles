@@ -240,11 +240,16 @@ set re=0
 " =========== FZF カスタマイズ
 " git grep 関数
 function! GitGrepQuery(query)
-    let command = 'git grep -n ' . shellescape(a:query)
+    if a:query == ''
+        let command = 'git grep -n .'
+    else
+        let command = 'git grep -n ' . shellescape(a:query)
+    endif
     call fzf#vim#grep(command, 1, fzf#vim#with_preview(), 0)
 endfunction
+
 " git grep を実行
-command! -nargs=+ GG call GitGrepQuery(<q-args>)
+command! -nargs=* GG call GitGrepQuery(<q-args>)
 cnoreabbrev gg GG
 
 " Filesエイリアス
