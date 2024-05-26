@@ -254,13 +254,8 @@ cnoreabbrev gg GG
 
 " Filesエイリアス
 cnoreabbrev fs Files
-
-" セッション
-set sessionoptions+=globals
-autocmd VimLeave * mksession! ~/.vim/session.vim
-nnoremap <leader>r :source ~/.vim/session.vim<CR>
-" 戻る
-command! Bk source ~/.vim/session.vim
-cnoreabbrev bk Bk
-
 " =========== FZF カスタマイズ
+
+" 戻る
+command! -nargs=0 Bk b#
+cnoreabbrev bk Bk
