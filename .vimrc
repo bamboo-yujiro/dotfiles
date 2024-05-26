@@ -179,9 +179,6 @@ if dein#check_install()
   call dein#install()
 endif
 
-" fzf のエイリアス
-command F Files
-
 " coc.nvimの設定
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -192,12 +189,6 @@ syntax on
 "filetype plugin indent on
 set background=dark
 colorscheme hybrid
-
-" Syntax 設定
-"let g:syntastic_python_checkers = ['pyflakes']
-"let g:syntastic_enable_perl_checker = 1
-"let g:syntastic_perl_checkers = ['perl', 'podchecker']
-"let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_ruby_checkers = ['rubocop']
@@ -211,17 +202,12 @@ let g:syntastic_check_on_wq = 0
 
 " Nerdtree
 nmap <silent> <C-e>      :NERDTreeToggle<CR>
-"vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-"omap <silent> <C-e>      :NERDTreeToggle<CR>
-"imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-"cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let g:NERDTreeShowHidden=1
 
 " 各ファイルフォーマットごとの設定
 autocmd Filetype json setl conceallevel=0
-
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
 
 " 各ファイルフォーマットタブインデント数のデフォルト値
@@ -272,14 +258,25 @@ set rubydll=''
 
 set re=0
 
-" Function to use git grep with fzf
+" =========== FZF カスタマイズ
+" git grep 関数
 function! GitGrepQuery(query)
     let command = 'git grep -n ' . shellescape(a:query)
     call fzf#vim#grep(command, 1, fzf#vim#with_preview(), 0)
 endfunction
-
-" Command that prompts for input and then uses git grep with fzf
+" git grep を実行
 command! -nargs=+ GG call GitGrepQuery(<q-args>)
+cnoreabbrev gg GG
 
-" Optional: Key mapping to trigger the search
-nnoremap <Leader>g :GG
+" Filesエイリアス
+cnoreabbrev fs Files
+
+" セッション
+set sessionoptions+=globals
+autocmd VimLeave * mksession! ~/.vim/session.vim
+nnoremap <leader>r :source ~/.vim/session.vim<CR>
+" 戻る
+command! Bk source ~/.vim/session.vim
+cnoreabbrev bk Bk
+
+" =========== FZF カスタマイズ
