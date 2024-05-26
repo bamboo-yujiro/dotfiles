@@ -179,6 +179,9 @@ if dein#check_install()
   call dein#install()
 endif
 
+" fzf のエイリアス
+command F Files
+
 " coc.nvimの設定
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -268,3 +271,15 @@ let g:airline_powerline_fonts = 1
 set rubydll=''
 
 set re=0
+
+" Function to use git grep with fzf
+function! GitGrepQuery(query)
+    let command = 'git grep -n ' . shellescape(a:query)
+    call fzf#vim#grep(command, 1, fzf#vim#with_preview(), 0)
+endfunction
+
+" Command that prompts for input and then uses git grep with fzf
+command! -nargs=+ GG call GitGrepQuery(<q-args>)
+
+" Optional: Key mapping to trigger the search
+nnoremap <Leader>g :GG
