@@ -262,9 +262,9 @@ export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 alias tmux='tmux -2'
 export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-export PATH="/Users/yujiro/Library/Android/sdk/platform-tools:$PATH"
-export PATH="/Users/yujiro/development/flutter/bin:$PATH"
-export PATH="/Users/yujiro/development/flutter/.pub-cache/bin:$PATH"
+export PATH="/Users/yujiro.takeyama/Library/Android/sdk/platform-tools:$PATH"
+export PATH="/Users/yujiro.takeyama/development/flutter/bin:$PATH"
+export PATH="/Users/yujiro.takeyama/development/flutter/.pub-cache/bin:$PATH"
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=/opt/homebrew/bin/:$PATH
 export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
@@ -300,3 +300,22 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 alias findN='find ./ -name'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/yujiro.takeyama/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yujiro.takeyama/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/yujiro.takeyama/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yujiro.takeyama/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+export WORKING_DIR="/Users/yujiro.takeyama/works"
+
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+export PATH="/Users/yujiro.takeyama/Library/Android/sdk/cmdline-tools/latest/bin:$PATH"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/yujiro.takeyama/.config/.dart-cli-completion/zsh-config.zsh ]] && . /Users/yujiro.takeyama/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
