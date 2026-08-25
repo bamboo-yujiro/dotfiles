@@ -332,3 +332,5 @@ export PATH="$HOME/.phone-harness:$PATH"
 
 # agent-device: iOS 実機ランナーの署名チーム (ikasa, Automatic Signing)
 export AGENT_DEVICE_IOS_TEAM_ID="ML27RR26KJ"
+
+alias git-untracked-full='git ls-files -z --others --exclude-standard | while IFS= read -r -d '"'"''"'"' f; do realpath "$f"; done'
