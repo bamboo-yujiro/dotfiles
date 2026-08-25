@@ -301,6 +301,14 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 alias findN='find ./ -name'
 
+sail() {
+  if [ -f sail ]; then
+    sh sail "$@"
+  else
+    sh vendor/bin/sail "$@"
+  fi
+}
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/yujiro.takeyama/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yujiro.takeyama/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -319,3 +327,8 @@ export PATH="/Users/yujiro.takeyama/Library/Android/sdk/cmdline-tools/latest/bin
 [[ -f /Users/yujiro.takeyama/.config/.dart-cli-completion/zsh-config.zsh ]] && . /Users/yujiro.takeyama/.config/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+# phone-harness (https://github.com/ShawnPana/phone-harness)
+export PATH="$HOME/.phone-harness:$PATH"
+
+# agent-device: iOS 実機ランナーの署名チーム (ikasa, Automatic Signing)
+export AGENT_DEVICE_IOS_TEAM_ID="ML27RR26KJ"
